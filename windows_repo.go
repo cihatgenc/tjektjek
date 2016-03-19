@@ -12,7 +12,7 @@ import (
 
 // GetKeyStats - Get registry key stats
 func GetKeyStats(key registry.Key) (*registry.KeyInfo, error) {
-	fmt.Printf("Executing GetKeyStats\n")
+	//fmt.Printf("Executing GetKeyStats\n")
 	stat, err := key.Stat()
 	if err != nil {
 		log.Fatal(err)
@@ -24,7 +24,7 @@ func GetKeyStats(key registry.Key) (*registry.KeyInfo, error) {
 
 // GetKeyNames - Get the key names
 func GetKeyNames(key registry.Key, count int) ([]string, error) {
-	fmt.Printf("Executing GetKeyNames\n")
+	//fmt.Printf("Executing GetKeyNames\n")
 	n, err := key.ReadValueNames(count)
 	if err != nil {
 		log.Fatal(err)
@@ -36,7 +36,7 @@ func GetKeyNames(key registry.Key, count int) ([]string, error) {
 
 // GetKeyStrValues - Get the key values in string
 func GetKeyStrValues(key registry.Key, keyname string) (string, error) {
-	fmt.Printf("Executing GetKeyValues\n")
+	//fmt.Printf("Executing GetKeyValues\n")
 	n, _, err := key.GetStringValue(keyname)
 	if err != nil {
 		log.Fatal(err)
@@ -48,7 +48,7 @@ func GetKeyStrValues(key registry.Key, keyname string) (string, error) {
 
 // GetKeyIntValues - Get the key values in integer
 func GetKeyIntValues(key registry.Key, keyname string) (int, error) {
-	fmt.Printf("Executing GetKeyValues\n")
+	//fmt.Printf("Executing GetKeyValues\n")
 	n, _, err := key.GetIntegerValue(keyname)
 	if err != nil {
 		log.Fatal(err)
@@ -62,7 +62,7 @@ func GetKeyIntValues(key registry.Key, keyname string) (int, error) {
 
 // GetServiceStatus - Return status of a service
 func GetServiceStatus(name string) (string, error) {
-	fmt.Printf("Executing GetServiceStatus for: %s\n", name)
+	//fmt.Printf("Executing GetServiceStatus for: %s\n", name)
 
 	var status string
 	m, err := mgr.Connect()
@@ -106,13 +106,13 @@ func GetServiceStatus(name string) (string, error) {
 		status = "server_not_found"
 	}
 
-	fmt.Printf("State returned is: %v\n", status)
+	//fmt.Printf("State returned is: %v\n", status)
 	return status, nil
 }
 
 // GetServiceStartType - Return startup mode for service
 func GetServiceStartType(name string) (string, error) {
-	fmt.Printf("Executing GetServiceStartType for: %s\n", name)
+	//fmt.Printf("Executing GetServiceStartType for: %s\n", name)
 	var starttype string
 
 	var keypath = fmt.Sprintf("SYSTEM\\CurrentControlSet\\services\\%s", name)

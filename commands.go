@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"github.com/codegangsta/cli"
 	"os"
 	//"strings"
@@ -26,8 +26,7 @@ func letsStart() {
 			Name:  "mssql_version",
 			Usage: "Check the SQL Server version",
 			Action: func(c *cli.Context) {
-				fmt.Println("SQL Server 2014 Standard Edition Ofzo")
-				os.Exit(sensuOk)
+				statusSQLVersion()
 			},
 		},
 	}
