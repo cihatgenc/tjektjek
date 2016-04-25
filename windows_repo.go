@@ -112,7 +112,6 @@ func GetServiceStatus(name string) (string, error) {
 
 // GetServiceStartType - Return startup mode for service
 func GetServiceStartType(name string) (string, error) {
-	//fmt.Printf("Executing GetServiceStartType for: %s\n", name)
 	var starttype string
 
 	var keypath = fmt.Sprintf("SYSTEM\\CurrentControlSet\\services\\%s", name)
@@ -123,13 +122,10 @@ func GetServiceStartType(name string) (string, error) {
 	}
 	defer k.Close()
 
-	//var s string
 	s, err := GetKeyIntValues(k, "Start")
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	fmt.Printf("%v", s)
 
 	switch s {
 	default:

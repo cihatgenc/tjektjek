@@ -5,7 +5,7 @@
 package main
 
 // compile passing -ldflags "-X main.versionNumber <build>"
-var versionNumber string
+var VERSION = ""
 
 func main() {
 	letsStart()

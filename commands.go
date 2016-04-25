@@ -2,8 +2,9 @@ package main
 
 import (
 	// "fmt"
-	"github.com/codegangsta/cli"
 	"os"
+
+	"github.com/codegangsta/cli"
 	//"strings"
 	//"log"
 )
@@ -12,7 +13,7 @@ func letsStart() {
 	app := cli.NewApp()
 	app.Name = "tjektjek"
 	app.Usage = "Checks your application"
-	app.Version = versionNumber
+	app.Version = VERSION
 
 	app.Commands = []cli.Command{
 		{
@@ -27,6 +28,27 @@ func letsStart() {
 			Usage: "Check the SQL Server version",
 			Action: func(c *cli.Context) {
 				statusSQLVersion()
+			},
+		},
+		{
+			Name:  "mssql_dbstates",
+			Usage: "Check the SQL Server database states",
+			Action: func(c *cli.Context) {
+				statusSQLDbState()
+			},
+		},
+		{
+			Name:  "mssql_connection",
+			Usage: "Check the SQL Server connection",
+			Action: func(c *cli.Context) {
+				statusSQLConnection()
+			},
+		},
+		{
+			Name:  "mssql_new",
+			Usage: "Check A new feature",
+			Action: func(c *cli.Context) {
+				statusSQLNew()
 			},
 		},
 	}
